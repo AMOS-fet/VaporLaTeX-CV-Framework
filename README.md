@@ -50,7 +50,7 @@ The main component for the CV title, designed as a 3D typographic block.
 ```
 * **Example:** `\vaporname[vpDeepNight]{John}{Doe}[Software Dev][dots]`
 
-### 2. Standard Window: `\vaporwindow`
+### 2. Standard Window: `vaporwindow`
 A classic OS-style window container for generic text blocks.
 ```latex
 \begin{vaporwindow}[Color]{Window Title}[ShadowPattern]
@@ -58,7 +58,7 @@ A classic OS-style window container for generic text blocks.
 \end{vaporwindow}
 ```
 
-### 3. Dynamic Grid: `\vaporbox`
+### 3. Dynamic Grid: `vaporbox`
 An advanced container for contact info or skills. It automatically divides the space into columns and generates the underlying white background panels proportionally.
 ```latex
 \begin{vaporbox}[Color][Width][ShadowPattern][Number of Columns]
