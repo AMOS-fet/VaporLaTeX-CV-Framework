@@ -2,6 +2,10 @@
 
 A highly customizable, Vaporwave/Retro-Tech themed LaTeX framework designed for modern and creative resumes. This project provides a set of UI components inspired by 80s/90s operating systems, featuring dynamic shadows, halftone patterns, neon aesthetics and fully responsive layouts.
 
+<p align="center">
+  <img src="screenshots/VaporLaTeX_CV.png" alt="VaporLaTeX Preview" width="600">
+</p>
+
 ## Features
 - **Dynamic Shadow Engine**: Customizable shadows with patterns (dots, grids, stripes) and a 10% opacity blending base to emulate real retro-printing effects.
 - **Fluid Grid System**: The `vaporbox` command automatically calculates internal margins and background panels based on the requested number of columns.
