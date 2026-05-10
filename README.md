@@ -11,7 +11,7 @@ A highly customizable, Vaporwave/Retro-Tech themed LaTeX framework designed for 
 ## Prerequisites
 Ensure you have a modern LaTeX distribution and include the following packages in your preamble:
 
-```
+```latex
 \usepackage{xcolor}
 \usepackage{fontawesome5}
 \usepackage[most]{tcolorbox}
