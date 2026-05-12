@@ -84,9 +84,10 @@ Small "pills" to be used exclusively inside `vaporbox`.
 * **Example:** `\vaporelement{github}[https://github.com/user]{github.com/user}`
 
 ### 5. Split Window: `vaporwindowsplit`
-Optimized for Work Experience or Education. It divides the space into a left column (25%) for dates/roles and a right column (75%) for descriptions.
+Optimized for Work Experience or Education. It divides the space into a left column for dates/roles and a right column for descriptions. The width ratio between the columns is fully customizable.
+
 ```latex
-\begin{vaporwindowsplit}[Color]{Title}[ShadowPattern]
+\begin{vaporwindowsplit}[Color]{Title}[ShadowPattern][LeftColumnRatio]
     \vaporitem{Keyword}{Description...}
 \end{vaporwindowsplit}
 ```
