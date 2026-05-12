@@ -41,12 +41,12 @@
 % =====================================================================
 
 % --- SHADOW SELECTOR ---
-\newcommand{\drawvaporshadow}[4]{%
+\newcommand{\drawvaporshadow}[4]{
 	% #1: choice, #2: color, #3: rounded edges, #4: coordinates
-	\def\vpchoice{#1}%
+	\def\vpchoice{#1}
 	
 	\ifdefstring{\vpchoice}{random}{%
-		\pgfmathrandominteger{\randpattern}{0}{4}%
+		\pgfmathrandominteger{\randpattern}{0}{4}
 		\ifcase\randpattern
 		\def\vpchoice{dots}\or
 		\def\vpchoice{crosshatch}\or
@@ -55,7 +55,7 @@
 		\def\vpchoice{lines}\fi
 	}{}
 	
-	\ifdefstring{\vpchoice}{dots}{%
+	\ifdefstring{\vpchoice}{dots}{
 		\fill[#2, fill opacity=0.1, #3] #4;
 		\fill[pattern={Dots[angle=45, distance=1mm, radius=1pt]}, pattern color=#2, #3] #4;
 	}{}
@@ -207,7 +207,8 @@
 	righttitle=0mm,        
 	toptitle=0mm,            
 	bottomtitle=-0.25mm,         
-	bottom=4mm,
+	top=1.3mm, 
+	bottom=3mm, 
 	fonttitle=\bfseries\sffamily,
 	coltitle=white,          
 	titlerule=1pt,           
@@ -218,6 +219,7 @@
 	overlay={\vaporoverlaycode},
 	enlarge bottom by=3mm, 
 	enlarge right by=3mm,  
+	before upper={\RaggedRight}, 
 	underlay={
 		\coordinate (Ssw) at ([xshift=1mm, yshift=-2mm]frame.south west);
 		\coordinate (Sne) at ([xshift=1mm, yshift=-2mm]frame.north east);
@@ -227,7 +229,7 @@
 }
 
 % === 2. VAPORNAME  ===
-\NewDocumentCommand{\vaporname}{O{vpBlack} m m O{} O{dots}}{%
+\NewDocumentCommand{\vaporname}{O{vpBlack} m m O{} O{dots}}{
 	\par\noindent
 	\begin{tikzpicture}[
 		baseline=(current bounding box.south),
@@ -262,7 +264,7 @@
 		\node[inner sep=0pt, outer sep=0pt, text=white] at (N2.center) {\Huge \textbf{\MakeUppercase{#3}}};
 		
 		% 5. ROLE 
-		\ifstrempty{#4}{}{%
+		\ifstrempty{#4}{}{
 			\node[anchor=north west, inner sep=0pt, text=#1, font=\sffamily\large, yshift=-8pt] 
 			at ([xshift=2pt, yshift=-3pt]N2.south west) {\MakeUppercase{#4}};
 		}
@@ -285,6 +287,7 @@
 		right=8pt, top=1.5pt, bottom=0pt,
 		boxsep=0pt,
 		valign=center,
+		halign=flush left,
 		underlay={
 			\begin{tcbclipinterior}
 				\fill[vpThemeColor] (interior.north west) rectangle ([xshift=5.5mm]interior.south west);
@@ -311,7 +314,7 @@
 	colframe=vpThemeColor,    
 	boxrule=2pt,              
 	boxsep=0pt,    
-	top=4mm,       
+	top=3.3mm+2pt, 
 	bottom=3mm,    
 	left=4mm,      
 	right=4mm,     
@@ -361,10 +364,10 @@
 
 % === 5. VAPORWINDOW SPLIT ===
 \NewDocumentCommand{\vaporitem}{m m}{
-	{\leavevmode\color{vpThemeColor}\bfseries\RaggedRight\hspace*{0pt}\MakeUppercase{#1}} & #2 \\
+	{\leavevmode\color{vpThemeColor}\bfseries\RaggedRight\hspace*{0pt}\MakeUppercase{#1}} & \RaggedRight #2 \tabularnewline 
 }
 
-\NewTColorBox{vaporwindowsplit}{ O{vpBlack} m O{random} }{
+\NewTColorBox{vaporwindowsplit}{ O{vpBlack} m O{random} O{0.25} }{
 	code={\colorlet{vpThemeColor}{#1}},
 	enhanced,
 	arc=1.25mm,                 
@@ -375,7 +378,8 @@
 	righttitle=0mm,        
 	toptitle=0mm,            
 	bottomtitle=0mm,         
-	bottom=4mm,
+	top=1.3mm, 
+	bottom=3mm, 
 	fonttitle=\bfseries\sffamily,
 	coltitle=white,          
 	titlerule=1pt,           
@@ -389,7 +393,7 @@
 	before upper={
 		\renewcommand{\arraystretch}{1.5}
 		\setlength{\tabcolsep}{0pt}
-		\begin{tabular}{@{} p{\dimexpr 0.25\linewidth-1.5mm\relax} @{\hspace{3mm}} p{\dimexpr 0.75\linewidth-1.5mm\relax} @{}}
+		\begin{tabular}{@{} p{\dimexpr #4\linewidth-1.5mm\relax} @{\hspace{3mm}} p{\dimexpr \linewidth-#4\linewidth-1.5mm\relax} @{}}
 		},
 		after upper={\end{tabular}},
 	underlay={
